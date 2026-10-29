@@ -19,7 +19,9 @@ User ↔ MCP Host (AI App) ↔ MCP Client ↔ MCP Server(s) ↔ Tools / Data / A
 - **MCP Server**: Lightweight program exposing tools, resources, and prompts via the protocol.
 - **Transports**: `stdio` (local) or Streamable HTTP (remote). The older HTTP+SSE transport is deprecated. See the [Streamable HTTP specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http).
 
-The LLM sees all tool descriptions from all connected servers in its context — this is critical to understanding cross-server attacks.
+Hosts can choose which discovered tools to include in the model context.
+When descriptions from multiple servers are exposed together, a malicious
+server's description can influence tool use across servers.
 
 ## Key Risks
 
